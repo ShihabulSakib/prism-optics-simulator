@@ -1,0 +1,444 @@
+/* ──────────────────────────────────────────────
+   Prism Optics Simulator – Global Styles
+   Light theme, clean educational aesthetic
+   ────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --col-bg:        #f8fafc;
+  --col-surface:   #ffffff;
+  --col-border:    #e2e8f0;
+  --col-text:      #1e293b;
+  --col-muted:     #64748b;
+  --col-accent:    #0ea5e9;
+  --col-accent2:   #8b5cf6;
+  --col-incident:  #3b82f6;
+  --col-refracted: #10b981;
+  --col-reflected: #f97316;
+  --col-emergent:  #8b5cf6;
+  --col-warn:      #ef4444;
+  --col-highlight: #fef3c7;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: var(--col-text);
+  background: var(--col-bg);
+}
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── App Root ── */
+.sim-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: var(--col-bg);
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.sim-header {
+  background: var(--col-surface);
+  border-bottom: 1px solid var(--col-border);
+  box-shadow: var(--shadow-sm);
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.sim-header-inner {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sim-logo {
+  font-size: 1.8rem;
+  color: var(--col-accent);
+  line-height: 1;
+}
+
+.sim-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--col-text);
+  letter-spacing: -0.02em;
+}
+
+.sim-subtitle {
+  font-size: 0.78rem;
+  color: var(--col-muted);
+  margin-top: 1px;
+}
+
+/* ── Main Layout ── */
+.sim-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  gap: 0;
+}
+
+/* ── Canvas Section ── */
+.sim-canvas-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--col-bg);
+  overflow: hidden;
+  position: relative;
+  min-width: 0;
+}
+
+.sim-canvas {
+  flex: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: default;
+  /* Critical for touch devices: prevent browser scroll/pan from stealing pointer events */
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.canvas-legend {
+  display: flex;
+  gap: 18px;
+  padding: 6px 16px;
+  background: var(--col-surface);
+  border-top: 1px solid var(--col-border);
+  font-size: 0.76rem;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ── Right Panel ── */
+.sim-panel {
+  width: 300px;
+  min-width: 280px;
+  max-width: 320px;
+  border-left: 1px solid var(--col-border);
+  background: var(--col-surface);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  flex-shrink: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--col-border) transparent;
+}
+
+.sim-panel::-webkit-scrollbar {
+  width: 5px;
+}
+.sim-panel::-webkit-scrollbar-thumb {
+  background: var(--col-border);
+  border-radius: 99px;
+}
+
+/* ── Panel Sections ── */
+.panel-section {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--col-border);
+}
+
+.panel-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--col-muted);
+  margin-bottom: 12px;
+}
+
+/* ── Fields ── */
+.field-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--col-muted);
+  margin-bottom: 5px;
+  margin-top: 8px;
+}
+.field-label:first-child { margin-top: 0; }
+
+.field-select {
+  width: 100%;
+  padding: 6px 10px;
+  border: 1px solid var(--col-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.82rem;
+  color: var(--col-text);
+  background: var(--col-bg);
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.field-select:focus { border-color: var(--col-accent); }
+
+.index-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.field-range {
+  flex: 1;
+  accent-color: var(--col-accent);
+  cursor: pointer;
+}
+.full-range {
+  width: 100%;
+  display: block;
+}
+
+.field-number {
+  width: 72px;
+  padding: 5px 7px;
+  border: 1px solid var(--col-border);
+  border-radius: var(--radius-sm);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--col-text);
+  background: var(--col-bg);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.field-number:focus { border-color: var(--col-accent); }
+
+.index-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  color: var(--col-text);
+  min-width: 44px;
+  text-align: right;
+}
+
+.hint {
+  font-size: 0.72rem;
+  color: var(--col-muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ── Toggle Switches ── */
+.toggle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 12px;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: var(--col-text);
+  cursor: pointer;
+  user-select: none;
+  padding: 3px 0;
+}
+
+.toggle-switch {
+  width: 32px;
+  height: 18px;
+  background: #cbd5e1;
+  border-radius: 99px;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+  outline: none;
+}
+.toggle-switch:focus-visible {
+  box-shadow: 0 0 0 3px rgba(14,165,233,0.3);
+}
+.toggle-switch.on {
+  background: var(--col-accent);
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transition: left 0.18s cubic-bezier(.4,0,.2,1);
+}
+.toggle-switch.on .toggle-thumb {
+  left: 16px;
+}
+
+/* ── Measurements Table ── */
+.meas-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.78rem;
+}
+
+.meas-row td {
+  padding: 5px 4px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.meas-label {
+  color: var(--col-muted);
+  font-weight: 400;
+  width: 60%;
+}
+
+.meas-value {
+  text-align: right;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: var(--col-text);
+}
+
+.meas-highlight .meas-value {
+  color: var(--col-accent2);
+  font-size: 0.85rem;
+}
+.meas-highlight {
+  background: #faf5ff;
+  border-radius: var(--radius-sm);
+}
+
+.meas-accent .meas-value {
+  color: var(--col-warn);
+}
+.meas-accent {
+  background: #fff1f2;
+}
+
+/* ── Tooltip ── */
+.tip-label {
+  cursor: help;
+  border-bottom: 1px dashed var(--col-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.tip-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--col-border);
+  color: var(--col-muted);
+  font-size: 0.6rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.global-tooltip {
+  position: fixed;
+  z-index: 9999;
+  max-width: 260px;
+  background: #1e293b;
+  color: #f8fafc;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+  animation: fadeIn 0.12s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-2px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Math Block ── */
+.math-block {
+  background: #f8fafc;
+  border: 1px solid var(--col-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.73rem;
+  line-height: 1.7;
+  color: var(--col-text);
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.math-section-header {
+  color: var(--col-accent);
+  font-weight: 600;
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+
+.math-spacer {
+  height: 6px;
+}
+
+.math-line {
+  color: var(--col-text);
+}
+
+.math-placeholder {
+  color: var(--col-muted);
+  font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  html, body, #root { overflow: auto; }
+  .sim-root { height: auto; min-height: 100vh; overflow: auto; }
+  .sim-layout { flex-direction: column; overflow: auto; }
+  /* Make canvas shorter on mobile so the user can easily scroll past it */
+  .sim-canvas-section { min-height: 40vh; height: 40vh; flex-shrink: 0; }
+  .sim-panel {
+    width: 100%;
+    min-width: unset;
+    max-width: unset;
+    border-left: none;
+    border-top: 1px solid var(--col-border);
+    max-height: none;
+    /* Smooth inertia scrolling on Android/iOS */
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+  .toggle-grid { grid-template-columns: 1fr 1fr 1fr; }
+
+  /* Prevent the whole page from scrolling while the user drags inside the canvas */
+  .sim-canvas-section {
+    overscroll-behavior: contain;
+  }
+}
+
