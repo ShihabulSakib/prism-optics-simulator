@@ -1,16 +1,48 @@
-# React + Vite
+# Prism Simulation
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A physics-based interactive light prism simulation built using React and Vite. This project simulates the refraction of light through glass prisms, showing dispersion (rainbow effect), reflection, and total internal reflection depending on the angle of incidence and index of refraction.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Interactive Laser & Prism Control**: Position, rotate, and adjust properties of the light source and the prism.
+- **Physical Light Simulation**: Accurate ray-tracing of light through media interfaces using Snell's Law.
+- **Wavelength Dispersion**: Simulates chromatic dispersion where different wavelengths (colors) of light refract at slightly different angles, splitting white light into a rainbow spectrum.
+- **Interactive UI Controls**: Adjust index of refraction, angle of incidence, light wavelength, beam width, and prism shapes.
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the Oxlint configuration
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- npm or yarn
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/simulation.git
+   cd simulation
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser to view the simulator.
+
+### Building for Production
+
+To build the project for production, run:
+```bash
+npm run build
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](file:///root/simulation/LICENSE) file for details.
